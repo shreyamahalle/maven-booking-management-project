@@ -9,6 +9,7 @@ public class CustomerService  implements CustomerServiceIInterface {
     private Scanner sc = new Scanner(System.in);
 
     void printCustomer(Customer customer){
+
         System.out.println(customer);
     }
 
