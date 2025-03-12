@@ -1,4 +1,5 @@
 package com.shreya.maven.controller;
+import com.shreya.maven.connection.ConnectionService;
 import com.shreya.maven.exception.CustomerException;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.model.Order;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 
 public class OrderController {
 
+    ConnectionService connectionService = new ConnectionService();
     OrderService orderService = new OrderService();
     private Customer C = new Customer();
     Order order = new Order();
