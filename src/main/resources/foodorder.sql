@@ -1,3 +1,23 @@
+create database stepupdb;
+show databases;
+use stepupdb;
+
+create database foodorder;
+
+use foodorder;
+
+create table foodorder (order_id  int primary key ,
+order_name varchar(150)not null ,
+order_price varchar(150) not null ,
+city varchar(150),
+address varchar(500)
+);
+
+insert into foodorder(order_id,order_name, order_price,city,address)
+value (58,'burger', 250,'pune','kothrud');
+
+select * from foodorder;
+
 insert into foodorder (order_id, order_name, order_price, city, address) values (1, 'Rhiamon', 'Loghan', 'Wieczfnia KoÅ›cielna', '5th Floor');
 insert into foodorder (order_id, order_name, order_price, city, address) values (2, 'Elisabet', 'Glisenan', 'Labney', 'Room 1801');
 insert into foodorder (order_id, order_name, order_price, city, address) values (3, 'Burtie', 'Woolerton', 'Lianhe', '13th Floor');
