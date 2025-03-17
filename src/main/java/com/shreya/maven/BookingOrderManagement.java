@@ -82,7 +82,8 @@ public class BookingOrderManagement {
                     OrderMultipleInheritanceService orderMultipleInheritanceService = new OrderMultipleInheritanceService();
                     orderMultipleInheritanceService.displayOrder();
             }
-        } while (option != 0);
+        }
+        while (option != 0);
 
         System.out.println("THANK YOU!");
     }
