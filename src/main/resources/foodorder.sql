@@ -1,7 +1,3 @@
-create database stepupdb;
-show databases;
-use stepupdb;
-
 create database foodorder;
 
 use foodorder;
@@ -12,6 +8,11 @@ order_price varchar(150) not null ,
 city varchar(150),
 address varchar(500)
 );
+
+ insert into foodorder(order_id,order_name, order_price,city,address)
+ value (58,'burger', 250,'pune','kothrud');
+ select * from foodorder;
+
 
 insert into foodorder(order_id,order_name, order_price,city,address)
 value (58,'burger', 250,'pune','kothrud');

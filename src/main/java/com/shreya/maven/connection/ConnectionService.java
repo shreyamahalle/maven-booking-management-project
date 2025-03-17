@@ -1,13 +1,13 @@
 package com.shreya.maven.connection;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionService { public Connection getConnection() {
+public class ConnectionService {
+    public Connection getConnection() {
     Connection connection = null;
     try {
-        String url = "jdbc:mysql://localhost:3306/stepupdb";
+        String url = "jdbc:mysql://localhost:3306/foodorder";
         String username = "root";
         String password = "root";
         connection = DriverManager.getConnection(url, username, password);
