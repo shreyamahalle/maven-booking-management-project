@@ -1,30 +1,27 @@
 package com.shreya.maven.service;
+import com.shreya.maven.exception.CustomerNotfound;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.repository.CustomerRepository;
 import java.util.*;
+import lombok.Data;
 
-public class CustomerService  implements CustomerServiceIInterface {
-    private CustomerRepository customerRepository = new CustomerRepository();
+public class CustomerService implements CustomerServiceIInterface {
+    private static final CustomerRepository customerRepository = new CustomerRepository();
     private static Map<Integer ,Customer> customers = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
 
-    void printCustomer(Customer customer){
-
-        System.out.println(customer);
-    }
-
     // using stream api
-    public void displayCustomerInfo() {
+    public void displayCustomerInfo() throws CustomerNotfound {
         customers.entrySet().stream().parallel()
                 .filter(entry -> entry.getValue().getId()>101)
                 .forEach(entry -> System.out.println("Customer ID: " + entry.getKey() + " = Customer Info: " + entry.getValue()));
     }
-
     public void createCustomer () {
-        Customer customer = new Customer();
-//        customerRepository.createCustomer();
-//        customerRepository.displayCustomers();
-        customerRepository.displayCustomerToBeClosed(1);
+         Customer customer = new Customer();
+         customerRepository.createCustomer(customer);
+         customerRepository.displayCustomers(customer);
+         customerRepository.displayCustomerToBeClosed(1);
+
         try {
             System.out.println("Please enter id:");
             int id = Integer.parseInt(sc.nextLine());

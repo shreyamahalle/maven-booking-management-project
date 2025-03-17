@@ -1,5 +1,6 @@
 package com.shreya.maven.controller;
 import com.shreya.maven.exception.CustomerException;
+import com.shreya.maven.exception.CustomerNotfound;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.repository.CustomerRepository;
 import com.shreya.maven.service.CustomerService;
@@ -44,6 +45,8 @@ public class CustomerController {
                 }
             } catch (CustomerException e) {
                 System.out.println("Error: " + e.getClass());
+            } catch (CustomerNotfound e) {
+                throw new RuntimeException(e);
             }
         } while (option != 0);
     }
