@@ -33,7 +33,7 @@ public class BookingOrderManagement {
                       CustomerController customerController = new CustomerController();
                       customerController.run();
                       Customer customer = new Customer();
-                      //System.out.println("Customer created : " + customer);
+                      System.out.println("Customer created : " + customer);
                       break;
             }
             switch (option) {

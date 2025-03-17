@@ -1,6 +1,7 @@
 package com.shreya.maven.controller;
 import com.shreya.maven.exception.CustomerException;
 import com.shreya.maven.model.Customer;
+import com.shreya.maven.repository.CustomerRepository;
 import com.shreya.maven.service.CustomerService;
 //import com.shreya.service.CustomerService;
 import java.util.Scanner;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class CustomerController {
 
     private CustomerService customerService = new CustomerService();
+    CustomerRepository customerRepository = new CustomerRepository();
     Customer customer = new Customer();
     private Scanner sc = new Scanner(System.in);
 
@@ -27,6 +29,8 @@ public class CustomerController {
                         customerService.createCustomer();
                         customerService.displayCustomers();
                         customerService.displayCustomerInfo();
+                        customerRepository.createCustomer(customer);
+                        customerRepository.displayCustomers(customer);
                         System.out.println("Customer created : " + customer);
                         break;
                     case 2:

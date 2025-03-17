@@ -7,9 +7,11 @@ public class DeliveryAgentRepository {
     Set<DeliveryAgent> deliveryAgents = new HashSet<>();
 
     public void createDeliveryAgent(DeliveryAgent deliveryAgent){
+
         deliveryAgents.add(deliveryAgent);
     }
     public void displayDeliveryAgent(DeliveryAgent deliveryAgent){
+
         deliveryAgents.remove(deliveryAgent);
     }
     public void displayDeliveryAgentToBeClosed(int id){

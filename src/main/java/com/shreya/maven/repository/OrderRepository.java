@@ -7,9 +7,9 @@ public class OrderRepository {
     Set<Order> orders = new HashSet<>();
 
     public void createOrder(Order order){
+
         orders.add(order);
     }
-
     public void displayOrder(Order order){
         orders.remove(order);
     }

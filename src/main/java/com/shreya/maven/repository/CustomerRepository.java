@@ -5,10 +5,13 @@ import java.util.Set;
 
 public class CustomerRepository {
     Set<Customer> customers = new HashSet<>();
+
     public void createCustomer(Customer customer){
+
         customers.add(customer);
     }
     public  void displayCustomers(Customer customer){
+
         customers.remove(customer);
     }
     public void displayCustomerToBeClosed(int id){

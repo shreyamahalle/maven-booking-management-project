@@ -7,10 +7,12 @@ public class RestaurantRepository {
     Set<Restaurant> restaurants = new HashSet<>();
 
     public void createRestaurant(Restaurant restaurant){
+
         restaurants.add(restaurant);
     }
 
     public void displayRestaurant(Restaurant restaurant){
+
         restaurants.remove(restaurant);
     }
 
@@ -23,6 +25,4 @@ public class RestaurantRepository {
         }
         restaurants.remove(restaurantToBeClosed);
     }
-
-
 }
