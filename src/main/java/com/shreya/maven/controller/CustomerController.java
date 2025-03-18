@@ -4,7 +4,6 @@ import com.shreya.maven.exception.CustomerNotfound;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.repository.CustomerRepository;
 import com.shreya.maven.service.CustomerService;
-//import com.shreya.service.CustomerService;
 import java.util.Scanner;
 
 public class CustomerController {

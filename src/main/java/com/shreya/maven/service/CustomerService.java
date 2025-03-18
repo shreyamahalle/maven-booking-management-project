@@ -2,25 +2,35 @@ package com.shreya.maven.service;
 import com.shreya.maven.exception.CustomerNotfound;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.repository.CustomerRepository;
-import java.util.*;
-import lombok.Data;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
-public class CustomerService implements CustomerServiceIInterface {
+public class CustomerService {
+
     private static final CustomerRepository customerRepository = new CustomerRepository();
+    Scanner sc = new Scanner(System.in);
     private static Map<Integer ,Customer> customers = new HashMap<>();
-    private Scanner sc = new Scanner(System.in);
+    public List<Customer> retrieveCustomers() {
+        return customerRepository.retrieveCustomers();
+    }
 
-    // using stream api
-    public void displayCustomerInfo() throws CustomerNotfound {
+    public static boolean insertCustomer(Customer customer) {
+        return customerRepository.addCustomer(customer);
+
+    }
+
+    public void displayCustomerInfo() throws CustomerNotfound{
         customers.entrySet().stream().parallel()
                 .filter(entry -> entry.getValue().getId()>101)
                 .forEach(entry -> System.out.println("Customer ID: " + entry.getKey() + " = Customer Info: " + entry.getValue()));
     }
     public void createCustomer () {
-         Customer customer = new Customer();
-         customerRepository.createCustomer(customer);
-         customerRepository.displayCustomers(customer);
-         customerRepository.displayCustomerToBeClosed(1);
+        Customer customer = new Customer();
+        customerRepository.createCustomer(customer);
+        customerRepository.displayCustomers(customer);
+        customerRepository.displayCustomerToBeClosed(1);
 
         try {
             System.out.println("Please enter id:");
@@ -50,17 +60,17 @@ public class CustomerService implements CustomerServiceIInterface {
         }
     }
     public void displayCustomers(){
-       try {
+        try {
             //Set<Map.Entry<Integer, Customer>> entrySet = customers.entrySet();
 //            for (Map.Entry<Integer, Customer> customerEntry : entrySet) {
 //                System.out.println("Customer Info: " + customers);
 //            }
-           //java 8 features forEach loop ...
-           customers.forEach((customerId, customers) -> System.out.println("Customer Id " + customerId + " = Customer Info " + customers));
+            //java 8 features forEach loop ...
+            customers.forEach((customerId, customers) -> System.out.println("Customer Id " + customerId + " = Customer Info " + customers));
 
-           } catch (Exception e) {
-           System.out.println("Error occurred");
-           }
-
+        } catch (Exception e) {
+            System.out.println("Error occurred");
         }
+
     }
+}

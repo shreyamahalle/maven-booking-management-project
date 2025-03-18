@@ -12,6 +12,4 @@
     private String city;
     private int mobileNo;
     private int age;
-
-
  }
