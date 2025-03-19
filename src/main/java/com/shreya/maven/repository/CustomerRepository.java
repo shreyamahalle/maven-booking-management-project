@@ -39,9 +39,10 @@ public class CustomerRepository {
         List<Customer> customers = new ArrayList<>();
 
         // Use the connection to execute SQL queries and interact with the database
+
         try {
             this.initConnection();
-            // Your database operations here...
+            // database operations here
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM customer");
             // Iterate over the result set

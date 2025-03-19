@@ -88,8 +88,8 @@ public class BookingOrderManagement {
             }
             switch (option) {
                 case 7:
-                    System.out.println("Performing CREATE operation on Customer");
-                    CustomerService.insertCustomer(new Customer(2080, "krishna", "amt", 908547358, 45));
+                    System.out.println("Performing create operation on Customer");
+                    CustomerService.insertCustomer(new Customer(133, "krishna", "amt", 908547358, 45));
                     break;
             }
             switch (option) {
