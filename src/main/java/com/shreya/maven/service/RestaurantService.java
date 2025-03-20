@@ -4,8 +4,8 @@ import com.shreya.maven.repository.RestaurantRepository;
 import java.util.*;
 
 public class RestaurantService {
-    private static RestaurantRepository restaurantRepository = new RestaurantRepository();
-    private static HashMap<Integer,Restaurant> restaurants = new HashMap<>();
+    private static final RestaurantRepository restaurantRepository = new RestaurantRepository();
+    private static final HashMap<Integer,Restaurant> restaurants = new HashMap<>();
     private static Scanner sc = new Scanner(System.in);
 
     public void printCustomer(){

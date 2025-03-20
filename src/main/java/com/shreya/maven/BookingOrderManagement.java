@@ -7,13 +7,12 @@ import com.shreya.maven.model.Customer;
 import com.shreya.maven.model.DeliveryAgent;
 import com.shreya.maven.model.Order;
 import com.shreya.maven.model.Restaurant;
-import com.shreya.maven.repository.CustomerRepository;
 import com.shreya.maven.service.*;
 import java.util.Scanner;
 public class BookingOrderManagement {
 
     private static final ConnectionService connectionService = new ConnectionService();
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws InvalideCustomerIDException{
 
@@ -28,6 +27,7 @@ public class BookingOrderManagement {
             System.out.println("5. Display Order Number");
             System.out.println("6. Combo Pack Offer");
             System.out.println("7. create customer DB");
+            System.out.println("8. create deliveryAgent DB");
             System.out.println("0. Exit project");
             System.out.println("Select the option..");
             option = Integer.parseInt(sc.nextLine());
@@ -89,7 +89,13 @@ public class BookingOrderManagement {
             switch (option) {
                 case 7:
                     System.out.println("Performing create operation on Customer");
-                    CustomerService.insertCustomer(new Customer(133, "krishna", "amt", 908547358, 45));
+                    CustomerService.insertCustomer(new Customer(134, "krishna", "amt", 908547358, 45));
+                    break;
+            }
+            switch (option) {
+                case 8:
+                    System.out.println("Performing create operation on deliveryAgent");
+                    DeliveryAgentService.insertDeliveryAgent();
                     break;
             }
             switch (option) {

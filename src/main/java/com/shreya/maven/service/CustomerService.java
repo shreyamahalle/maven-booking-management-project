@@ -11,16 +11,18 @@ public class CustomerService {
 
     private static final CustomerRepository customerRepository = new CustomerRepository();
     Scanner sc = new Scanner(System.in);
-    private static Map<Integer ,Customer> customers = new HashMap<>();
+    private static final Map<Integer ,Customer> customers = new HashMap<>();
 
     public List<Customer> showCustomers() {
-        return customerRepository.showCustomers();
+        return customerRepository.retrieveCustomers();
+    }
+    public static void insertCustomer(Customer customer) {
+        customerRepository.addCustomer(customer);
+    }
+    public static void Customer(Customer customer) {
+        customerRepository.retrieveCustomer(1,"abc");
     }
 
-    public static boolean insertCustomer(Customer customer) {
-        return customerRepository.addCustomer(customer);
-
-    }
 
     public void displayCustomerInfo() throws CustomerNotfound{
         customers.entrySet().stream().parallel()

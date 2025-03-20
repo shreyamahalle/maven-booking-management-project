@@ -1,7 +1,5 @@
 package com.shreya.maven.service;
-
 import com.shreya.maven.model.Order;
-
 import java.util.Scanner;
 
 public class OrderMultipleInheritanceService extends Order {

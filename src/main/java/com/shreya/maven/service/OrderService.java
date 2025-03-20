@@ -14,7 +14,7 @@ public class OrderService implements OrderNumberService {
     void printCustomer(Order order){
         System.out.println(order);
     }
-    public Order createOrder(){
+    public void createOrder(){
         Order order = new Order();
         orderRepository.createOrder(order);
         orderRepository.displayOrder(order);
@@ -41,7 +41,6 @@ public class OrderService implements OrderNumberService {
         }catch (Exception e){
             System.out.println("Invalid input type correct data");
         }
-        return order;
     }
     @Override
     public void createOrderNo() {

@@ -1,21 +1,47 @@
 package com.shreya.maven.service;
+import com.shreya.maven.model.Customer;
 import com.shreya.maven.model.DeliveryAgent;
+import com.shreya.maven.repository.CustomerRepository;
 import com.shreya.maven.repository.DeliveryAgentRepository;
+
+import java.sql.SQLException;
 import java.util.*;
 
 public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
-    private DeliveryAgentRepository deliveryAgentRepository = new DeliveryAgentRepository();
+    private static final DeliveryAgentRepository deliveryAgentRepository = new DeliveryAgentRepository();
+    private static final CustomerRepository customerRepository = new CustomerRepository();
+    //private static final Customer customer = new Customer();
     public static Map<Integer, DeliveryAgent> deliveryAgents = new HashMap<>();
-    private Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
+    private static final DeliveryAgent deliveryAgent = new DeliveryAgent();
 
-    void printCustomer(DeliveryAgent deliveryAgent){
+    public static void insertDeliveryAgent() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Pls enter deliveryAgent id:");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Pls enter deliveryAgent name:");
+        String name = scanner.nextLine();
+        System.out.println("Pls enter city:");
+        String city = scanner.nextLine();
+        System.out.println("Pls enter mobileNo :");
+        int mobileNo = Integer.parseInt(scanner.nextLine());
 
-        System.out.println(deliveryAgent);
+
+        Customer customer = customerRepository.retrieveCustomer(id,name);
+        DeliveryAgent deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
+
+        try {
+            if (deliveryAgentRepository.insertDeliveryAgent(deliveryAgent)) {
+                System.out.println("deliveryAgent inserted successfully!");
+            } else {
+                System.out.println("Failed to insert deliveryAgent.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public DeliveryAgent createDeliveryAgent(){
-
-        DeliveryAgent deliveryAgent = new DeliveryAgent();
+        public void createDeliveryAgent(){
         deliveryAgentRepository.createDeliveryAgent(deliveryAgent);
         deliveryAgentRepository.displayDeliveryAgent(deliveryAgent);
         deliveryAgentRepository.displayDeliveryAgentToBeClosed(1);
@@ -41,9 +67,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
         }catch (Exception e){
                 System.out.println("Invalid input type correct data");
             }
-        return deliveryAgent;
     }
-
     public void displayDeliveryAgent(){
 
         try {
@@ -53,7 +77,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
 //            System.out.println("Customer Info: " + deliveryAgents );
 //          }
 
-            //java 8 features forEach loop..
+            //java 8 features forEach loop
             deliveryAgents.forEach((id, deliveryAgents)-> System.out.println("deliveryAgents Id " + id + " = deliveryAgents info " + deliveryAgents));
 
             }catch (Exception e){

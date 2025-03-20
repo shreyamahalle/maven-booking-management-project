@@ -15,7 +15,7 @@ public class CustomerRepository {
             connection = new ConnectionService().getConnection();
         }
     }
-    public boolean addCustomer(Customer customer) {
+    public void addCustomer(Customer customer) {
         try {
             this.initConnection();
             Statement insertStatement = connection.createStatement();
@@ -25,14 +25,21 @@ public class CustomerRepository {
                     + customer.getAge() + ");");
 
             System.out.println(insertStatement.toString());
-            return isInserted;
         }
         catch (SQLException e)
         {
             throw new RuntimeException(e);
+        } finally { //close connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.err.println("Error closing connection: " + e.getMessage());
+                }
+            }
         }
     }
-    public List<Customer> showCustomers() {
+    public List<Customer> retrieveCustomers() {
         List<Customer> customers = new ArrayList<>();
         try {
             this.initConnection();
@@ -64,18 +71,16 @@ public class CustomerRepository {
         }
         return customers;
     }
-    public Customer retrieveCustomer(int custometrId) {
+    public Customer retrieveCustomer(int id , String name) {
         Customer customer = null;
 
         try {
             this.initConnection();
-
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM customer where id = " + custometrId);
-
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM customer where id = " + id + name);
             while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
+//                int id = resultSet.getInt("id");
+//                String name = resultSet.getString("name");
                 String city = resultSet.getString("city");
                 int mobileNo = resultSet.getInt("mobileNo");
                 int age = resultSet.getInt("age");
@@ -84,7 +89,6 @@ public class CustomerRepository {
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
         } finally {
-
             if (connection != null) {
                 try {
                     connection.close();
@@ -96,10 +100,9 @@ public class CustomerRepository {
         return customer;
     }
     Set<Customer> customers = new HashSet<>();
-    public boolean createCustomer(Customer customer) {
+    public void createCustomer(Customer customer) {
 
         customers.add(customer);
-        return false;
     }
     public void displayCustomers(Customer customer) {
         customers.remove(customer);
@@ -112,8 +115,5 @@ public class CustomerRepository {
             }
         }
         customers.remove(customerToBeClosed);
-    }
-    public List<Customer> retrieveCustomers() {
-        return List.of();
     }
 }
