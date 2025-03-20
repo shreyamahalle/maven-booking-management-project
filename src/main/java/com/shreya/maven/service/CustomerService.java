@@ -2,6 +2,8 @@ package com.shreya.maven.service;
 import com.shreya.maven.exception.CustomerNotfound;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.repository.CustomerRepository;
+
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,6 +62,18 @@ public class CustomerService {
 
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");
+        }
+    }
+    public static void deleteCustomer()  {
+
+        try {
+            if (customerRepository.deleteCustomer(1)) {
+                System.out.println("deliveryAgent deleted successfully!");
+            } else {
+                System.out.println("Failed to delete deliveryAgent.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
     public void displayCustomers(){

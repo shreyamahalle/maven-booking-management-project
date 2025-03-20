@@ -99,6 +99,28 @@ public class CustomerRepository {
         }
         return customer;
     }
+
+    public boolean deleteCustomer(int id) throws SQLException {
+
+        try {
+            this.initConnection();
+            Statement statement = connection.createStatement();
+            return statement.execute("delete from Customer where id = " + id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.err.println("connection is closed: " + e.getMessage());
+
+                }
+            }
+        }
+    }
+
+
     Set<Customer> customers = new HashSet<>();
     public void createCustomer(Customer customer) {
 

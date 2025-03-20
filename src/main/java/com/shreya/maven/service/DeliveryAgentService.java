@@ -43,8 +43,6 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
 
     public static void deleteDeliveryAgent()  {
 
-        //boolean removedDeliveryAgent = DeliveryAgentRepository.deleteDeliveryAgent(1);
-        //System.out.println("removed deliveryAgent: "+removedDeliveryAgent);
         try {
             if (deliveryAgentRepository.deleteDeliveryAgent(1)) {
                 System.out.println("deliveryAgent deleted successfully!");

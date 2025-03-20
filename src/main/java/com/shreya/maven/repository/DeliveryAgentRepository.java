@@ -37,7 +37,7 @@ public class DeliveryAgentRepository {
     }
 
 
-    public  boolean deleteDeliveryAgent(int id) throws SQLException {
+    public boolean deleteDeliveryAgent(int id) throws SQLException {
 
         try {
             this.initConnection();

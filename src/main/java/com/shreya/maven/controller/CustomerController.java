@@ -19,7 +19,8 @@ public class CustomerController {
             System.out.println("\n---- Customer ----");
             System.out.println("1. Add Customer");
             System.out.println("2. View Customer Details");
-            System.out.println("3. create customer in db");
+            System.out.println("3. create customer on db");
+            System.out.println("4. delete customer on db");
             System.out.println("0. Back to Main Menu");
             System.out.print("Enter choice: ");
 
@@ -40,6 +41,10 @@ public class CustomerController {
                     case 3:
                         System.out.println("Performing create operation on Customer");
                         CustomerService.insertCustomer(new Customer(135, "krishna", "amt", 908547358, 45));
+                        break;
+                    case 4:
+                        System.out.println("delete Customer");
+                        CustomerService.deleteCustomer();
                         break;
                     case 0:
                         System.out.println("Returning to Main Menu...");
