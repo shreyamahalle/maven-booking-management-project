@@ -4,6 +4,7 @@ import com.shreya.maven.service.ConnectionService;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,21 +36,26 @@ public class DeliveryAgentRepository {
         return false;
     }
 
-//    public boolean deleteDeliveryAgent(int Id) throws SQLException {
-//
-//        try{
-//            this.initConnection();
-//            Statement statement = connection.createStatement();
-//            return statement.execute("delete from DeliveryAgent where id = "+Id);
-//        }catch (SQLException e){
-//            throw new RuntimeException(e);
-//        }
-//        finally {
-//            if (connection != null) {
-//                try {
-//                    connection.close();
-//                } catch (SQLException e) {
-//                    System.err.println("connection is closed: " + e.getMessage());
+
+    public  boolean deleteDeliveryAgent(int id) throws SQLException {
+
+        try {
+            this.initConnection();
+            Statement statement = connection.createStatement();
+            return statement.execute("delete from DeliveryAgent where id = " + id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.err.println("connection is closed: " + e.getMessage());
+
+                }
+            }
+        }
+    }
 
 
      Set<DeliveryAgent> deliveryAgents = new HashSet<>();

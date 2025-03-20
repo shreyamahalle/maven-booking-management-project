@@ -41,6 +41,22 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
         }
     }
 
+    public static void deleteDeliveryAgent()  {
+
+        //boolean removedDeliveryAgent = DeliveryAgentRepository.deleteDeliveryAgent(1);
+        //System.out.println("removed deliveryAgent: "+removedDeliveryAgent);
+        try {
+            if (deliveryAgentRepository.deleteDeliveryAgent(1)) {
+                System.out.println("deliveryAgent deleted successfully!");
+            } else {
+                System.out.println("Failed to delete deliveryAgent.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
         public void createDeliveryAgent(){
         deliveryAgentRepository.createDeliveryAgent(deliveryAgent);
         deliveryAgentRepository.displayDeliveryAgent(deliveryAgent);
