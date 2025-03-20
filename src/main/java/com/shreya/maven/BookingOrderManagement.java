@@ -28,9 +28,6 @@ public class BookingOrderManagement {
             System.out.println("4. Create order");
             System.out.println("5. Display Order Number");
             System.out.println("6. Combo Pack Offer");
-            System.out.println("7. create customer DB");
-            System.out.println("8. create deliveryAgent DB");
-            System.out.println("9. delete deliveryAgent DB");
             System.out.println("0. Exit project");
             System.out.println("Select the option..");
             option = Integer.parseInt(sc.nextLine());
@@ -88,24 +85,6 @@ public class BookingOrderManagement {
                 case 6:
                     OrderMultipleInheritanceService orderMultipleInheritanceService = new OrderMultipleInheritanceService();
                     orderMultipleInheritanceService.displayOrder();
-            }
-            switch (option) {
-                case 7:
-                    System.out.println("Performing create operation on Customer");
-                    CustomerService.insertCustomer(new Customer(134, "krishna", "amt", 908547358, 45));
-                    break;
-            }
-            switch (option) {
-                case 8:
-                    System.out.println("Performing create operation on deliveryAgent");
-                    DeliveryAgentService.insertDeliveryAgent();
-                    break;
-            }
-            switch (option) {
-                case 9:
-                    System.out.println("delete deliveryAgent");
-                    DeliveryAgentService.deleteDeliveryAgent();
-                    break;
             }
             switch (option) {
                 case 0:
