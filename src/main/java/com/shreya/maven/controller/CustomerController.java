@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class CustomerController {
 
-    private CustomerService customerService = new CustomerService();
+    private final CustomerService customerService = new CustomerService();
     CustomerRepository customerRepository = new CustomerRepository();
     Customer customer = new Customer();
-    private Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     public void run() {
         int option ;

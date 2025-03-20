@@ -12,8 +12,9 @@ public class CustomerService {
     private static final CustomerRepository customerRepository = new CustomerRepository();
     Scanner sc = new Scanner(System.in);
     private static Map<Integer ,Customer> customers = new HashMap<>();
-    public List<Customer> retrieveCustomers() {
-        return customerRepository.retrieveCustomers();
+
+    public List<Customer> showCustomers() {
+        return customerRepository.showCustomers();
     }
 
     public static boolean insertCustomer(Customer customer) {
