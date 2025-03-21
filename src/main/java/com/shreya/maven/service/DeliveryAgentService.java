@@ -7,7 +7,7 @@ import com.shreya.maven.repository.DeliveryAgentRepository;
 import java.sql.SQLException;
 import java.util.*;
 
-public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
+public class DeliveryAgentService implements DeliveryAgentServiceInterface {
     private static final DeliveryAgentRepository deliveryAgentRepository = new DeliveryAgentRepository();
     private static final CustomerRepository customerRepository = new CustomerRepository();
     //private static final Customer customer = new Customer();
@@ -26,8 +26,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
         System.out.println("Pls enter mobileNo :");
         int mobileNo = Integer.parseInt(scanner.nextLine());
 
-
-        Customer customer = customerRepository.retrieveCustomer(id,name);
+        Customer customer = customerRepository.retrieveCustomer(id, name);
         DeliveryAgent deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
 
         try {
@@ -40,7 +39,6 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
             throw new RuntimeException(e);
         }
     }
-
     public static void deleteDeliveryAgent()  {
 
         try {
@@ -53,7 +51,9 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface  {
             throw new RuntimeException(e);
         }
     }
-
+    public List<DeliveryAgent> retrieveDeliveryAgents() {
+        return deliveryAgentRepository.retrieveDeliveryAgents();
+    }
 
         public void createDeliveryAgent(){
         deliveryAgentRepository.createDeliveryAgent(deliveryAgent);

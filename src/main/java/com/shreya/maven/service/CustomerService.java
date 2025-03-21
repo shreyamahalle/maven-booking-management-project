@@ -15,7 +15,7 @@ public class CustomerService {
     Scanner sc = new Scanner(System.in);
     private static final Map<Integer ,Customer> customers = new HashMap<>();
 
-    public List<Customer> showCustomers() {
+    public List<Customer> retrieveCustomers() {
         return customerRepository.retrieveCustomers();
     }
     public static void insertCustomer(Customer customer) {
@@ -68,13 +68,21 @@ public class CustomerService {
 
         try {
             if (customerRepository.deleteCustomer(1)) {
-                System.out.println("deliveryAgent deleted successfully!");
+                System.out.println("Customer deleted successfully!");
             } else {
-                System.out.println("Failed to delete deliveryAgent.");
+                System.out.println("Failed to delete Customer.");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static void updateCustomer() throws SQLException {
+        if(customerRepository.updateCustomer(2,"shreya")){
+            System.out.println("Customer updated successfully ");
+        } else{
+            System.out.println("Failed to update customer");
+        }
+
     }
     public void displayCustomers(){
         try {

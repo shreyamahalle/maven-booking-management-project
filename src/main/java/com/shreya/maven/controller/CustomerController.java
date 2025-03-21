@@ -4,6 +4,8 @@ import com.shreya.maven.exception.CustomerNotfound;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.repository.CustomerRepository;
 import com.shreya.maven.service.CustomerService;
+
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class CustomerController {
@@ -19,8 +21,11 @@ public class CustomerController {
             System.out.println("\n---- Customer ----");
             System.out.println("1. Add Customer");
             System.out.println("2. View Customer Details");
-            System.out.println("3. create customer on db");
-            System.out.println("4. delete customer on db");
+            System.out.println("3. create Customer on db");
+            System.out.println("4. delete Customer on db");
+            System.out.println("5. Retrieve Customer");
+            System.out.println("6. Update Customer");
+            System.out.println("7. Read Operation Customer");
             System.out.println("0. Back to Main Menu");
             System.out.print("Enter choice: ");
 
@@ -46,6 +51,20 @@ public class CustomerController {
                         System.out.println("delete Customer");
                         CustomerService.deleteCustomer();
                         break;
+                    case 5:
+                        System.out.println("Retrieve Customer");
+                        customerService.retrieveCustomers().forEach(customer -> {
+                            System.out.println("customer ID: " + customer.getId() + ", name: " + customer.getName());
+                        });
+                        break;
+                    case 6:
+                        System.out.println("Update Customer");
+                        CustomerService.updateCustomer();
+
+                    case 7:
+                        System.out.println("Update Customer");
+                        CustomerService.updateCustomer();
+                        break;
                     case 0:
                         System.out.println("Returning to Main Menu...");
                         break;
@@ -54,7 +73,7 @@ public class CustomerController {
                 }
             } catch (CustomerException e) {
                 System.out.println("Error: " + e.getClass());
-            } catch (CustomerNotfound e) {
+            } catch (CustomerNotfound | SQLException e) {
                 throw new RuntimeException(e);
             }
         } while (option != 0);

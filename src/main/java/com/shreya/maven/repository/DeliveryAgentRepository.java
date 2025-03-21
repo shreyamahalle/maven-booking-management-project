@@ -1,11 +1,10 @@
 package com.shreya.maven.repository;
 import com.shreya.maven.model.DeliveryAgent;
 import com.shreya.maven.service.ConnectionService;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class DeliveryAgentRepository {
@@ -55,6 +54,65 @@ public class DeliveryAgentRepository {
                 }
             }
         }
+    }
+
+    public List<DeliveryAgent> retrieveDeliveryAgents() {
+        List<DeliveryAgent> deliveryAgents = new ArrayList<>();
+        try {
+            this.initConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from deliveryagent");
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String city = resultSet.getString("city");
+                int mobileNo = resultSet.getInt("mobileNo");
+
+                DeliveryAgent deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
+                deliveryAgents.add(deliveryAgent);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL error: " + e.getMessage());
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.err.println("Error closing connection: " + e.getMessage());
+                }
+            }
+        }
+        return deliveryAgents;
+    }
+
+    public DeliveryAgent retrieveDeliveryAgent(int id, String name) {
+        DeliveryAgent deliveryAgent = null;
+
+        try {
+            this.initConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM deliveryagent where id = " + id + name);
+            while (resultSet.next()) {
+//                int id = resultSet.getInt("id");
+//                String name = resultSet.getString("name");
+                String city = resultSet.getString("city");
+                int mobileNo = resultSet.getInt("mobileNo");
+
+                deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL error: " + e.getMessage());
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.err.println("Error closing connection: " + e.getMessage());
+                }
+            }
+        }
+        return deliveryAgent;
     }
 
 

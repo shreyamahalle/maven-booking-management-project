@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class DeliveryAgentController {
     private final DeliveryAgentService deliveryAgentService = new DeliveryAgentService();
     private final DeliveryAgent deliveryAgent = new DeliveryAgent();
-    private Customer C = new Customer();
-    private Scanner sc = new Scanner(System.in);
+    private final Customer customer = new Customer();
+    private final Scanner sc = new Scanner(System.in);
 
     public void run() {
         int option;
@@ -18,8 +18,9 @@ public class DeliveryAgentController {
             System.out.println("---- DeliveryAgent ----");
             System.out.println("1. Add DeliveryAgent");
             System.out.println("2. View DeliveryAgent Details");
-            System.out.println("3. create deliveryAgent in db");
-            System.out.println("4. delete deliveryAgent in db");
+            System.out.println("3. create DeliveryAgent in db");
+            System.out.println("4. delete DeliveryAgent in db");
+            System.out.println("5. Retrieve DeliveryAgent");
             System.out.println("0. Back to the Main Menu");
             System.out.print("Enter choice: ");
 
@@ -41,6 +42,12 @@ public class DeliveryAgentController {
                     case 4:
                         System.out.println("delete deliveryAgent");
                         DeliveryAgentService.deleteDeliveryAgent();
+                        break;
+                    case 5:
+                        System.out.println("Retrieve DeliveryAgent");
+                        deliveryAgentService.retrieveDeliveryAgents().forEach(deliveryAgent -> {
+                            System.out.println("DeliveryAgent ID: " + deliveryAgent.getId() + ", name: " + deliveryAgent.getName());
+                        });
                         break;
                     case 0:
                         System.out.println("Returning to Main Menu...");

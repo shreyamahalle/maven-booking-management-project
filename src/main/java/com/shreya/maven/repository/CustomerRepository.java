@@ -15,6 +15,7 @@ public class CustomerRepository {
             connection = new ConnectionService().getConnection();
         }
     }
+
     public void addCustomer(Customer customer) {
         try {
             this.initConnection();
@@ -25,9 +26,7 @@ public class CustomerRepository {
                     + customer.getAge() + ");");
 
             System.out.println(insertStatement.toString());
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally { //close connection
             if (connection != null) {
@@ -39,6 +38,7 @@ public class CustomerRepository {
             }
         }
     }
+
     public List<Customer> retrieveCustomers() {
         List<Customer> customers = new ArrayList<>();
         try {
@@ -53,12 +53,10 @@ public class CustomerRepository {
                 int mobileNo = resultSet.getInt("mobileNo");
                 int age = resultSet.getInt("age");
 
-                Customer address = new Customer(id,name,city,mobileNo,age);
-                customers.add(address);
+                Customer customer = new Customer(id, name, city, mobileNo, age);
+                customers.add(customer);
             }
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
         } finally {
             if (connection != null) {
@@ -71,7 +69,8 @@ public class CustomerRepository {
         }
         return customers;
     }
-    public Customer retrieveCustomer(int id , String name) {
+
+    public Customer retrieveCustomer(int id, String name) {
         Customer customer = null;
 
         try {
@@ -84,7 +83,7 @@ public class CustomerRepository {
                 String city = resultSet.getString("city");
                 int mobileNo = resultSet.getInt("mobileNo");
                 int age = resultSet.getInt("age");
-                customer = new Customer(id,name, city,mobileNo,age);
+                customer = new Customer(id, name, city, mobileNo, age);
             }
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
@@ -101,7 +100,6 @@ public class CustomerRepository {
     }
 
     public boolean deleteCustomer(int id) throws SQLException {
-
         try {
             this.initConnection();
             Statement statement = connection.createStatement();
@@ -120,6 +118,30 @@ public class CustomerRepository {
         }
     }
 
+    public boolean updateCustomer(int id, String name) throws SQLException {
+        Customer customer = null;
+        try {
+            this.initConnection();
+            Statement statement = connection.createStatement();
+            String sql = "UPDATE Customer SET name = ? WHERE id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                // Set the parameters for the prepared statement
+                preparedStatement.setString(1, name);
+                preparedStatement.setInt(2, id);
+
+                // Execute the update query and return true if the update was successful
+                return preparedStatement.executeUpdate() > 0;  // Returns true if at least one row was updated
+            }
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.err.println("Error closing connection: " + e.getMessage());
+                }
+            }
+        }
+    }
 
     Set<Customer> customers = new HashSet<>();
     public void createCustomer(Customer customer) {
