@@ -22,8 +22,33 @@ public class CustomerService {
         customerRepository.addCustomer(customer);
     }
     public static void Customer(Customer customer) {
+
         customerRepository.retrieveCustomer(1,"abc");
     }
+
+    public static void deleteCustomer()  {
+
+        try {
+            if (customerRepository.deleteCustomer(1)) {
+                System.out.println("Customer deleted successfully!");
+            } else {
+                System.out.println("Failed to delete Customer.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void updateCustomer() throws SQLException {
+        if(customerRepository.updateCustomer(2,"shreya")){
+            System.out.println("Customer updated successfully ");
+        } else{
+            System.out.println("Failed to update customer");
+        }
+
+    }
+
+
+
 
 
     public void displayCustomerInfo() throws CustomerNotfound{
@@ -64,26 +89,7 @@ public class CustomerService {
             System.out.println("Invalid input type correct data");
         }
     }
-    public static void deleteCustomer()  {
 
-        try {
-            if (customerRepository.deleteCustomer(1)) {
-                System.out.println("Customer deleted successfully!");
-            } else {
-                System.out.println("Failed to delete Customer.");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public static void updateCustomer() throws SQLException {
-        if(customerRepository.updateCustomer(2,"shreya")){
-            System.out.println("Customer updated successfully ");
-        } else{
-            System.out.println("Failed to update customer");
-        }
-
-    }
     public void displayCustomers(){
         try {
             //Set<Map.Entry<Integer, Customer>> entrySet = customers.entrySet();

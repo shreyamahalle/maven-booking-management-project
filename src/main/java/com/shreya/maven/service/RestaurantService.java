@@ -1,12 +1,66 @@
 package com.shreya.maven.service;
+import com.shreya.maven.model.Customer;
 import com.shreya.maven.model.Restaurant;
 import com.shreya.maven.repository.RestaurantRepository;
+
+import java.sql.SQLException;
 import java.util.*;
 
 public class RestaurantService {
     private static final RestaurantRepository restaurantRepository = new RestaurantRepository();
     private static final HashMap<Integer,Restaurant> restaurants = new HashMap<>();
     private static Scanner sc = new Scanner(System.in);
+
+
+
+    public static List<Restaurant> retrieveRestaurants() {
+        return restaurantRepository.retrieveRestaurants();
+    }
+    public static void insertRestaurant(Restaurant restaurant) throws SQLException {
+        restaurantRepository.addRestaurant(restaurant);
+    }
+    public static void Restaurant(Restaurant restaurant) {
+
+        restaurantRepository.retrieveRestaurant(1,"abc");
+    }
+
+    public static void deleteRestaurant()  {
+
+        try {
+            if (restaurantRepository.deleteRestaurant(1)) {
+                System.out.println("Restaurant deleted successfully!");
+            } else {
+                System.out.println("Failed to delete Restaurant.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void updateRestaurant() throws SQLException {
+        if(restaurantRepository.updateRestaurant(2,"shreya")){
+            System.out.println("Restaurant updated successfully ");
+        } else{
+            System.out.println("Failed to update Restaurant");
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void printCustomer(){
         System.out.println(restaurants);

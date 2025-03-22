@@ -2,14 +2,57 @@ package com.shreya.maven.service;
 import com.shreya.maven.model.Order;
 import com.shreya.maven.repository.OrderRepository;
 
+import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class OrderService implements OrderNumberService {
 
-    OrderRepository orderRepository = new OrderRepository();
+    static OrderRepository orderRepository = new OrderRepository();
     HashMap<Integer,Order> orders = new HashMap<>();
     Scanner sc = new Scanner(System.in);
+
+
+    public List<Order> retrieveOrders() {
+        return orderRepository.retrieveOrders();
+    }
+    public static void insertOrder(Order order) throws SQLException {
+        orderRepository.addOrder(order);
+    }
+    public static void Order(Order order) throws SQLException {
+
+        orderRepository.retrieveOrder(1,"abc");
+    }
+
+
+    public static void deleteOrder()  {
+
+        try {
+            if (orderRepository.deleteOrder(1)) {
+                System.out.println("Order deleted successfully!");
+            } else {
+                System.out.println("Failed to delete Order.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateOrder() throws SQLException {
+        if(orderRepository.updateOrder(2,"meal")){
+            System.out.println("Order updated successfully ");
+        } else{
+            System.out.println("Failed to update Order");
+        }
+
+    }
+
+
+
+
+
+
 
     void printCustomer(Order order){
         System.out.println(order);
@@ -46,7 +89,7 @@ public class OrderService implements OrderNumberService {
     public void createOrderNo() {
     }
 
-    public void deleteOrder(int orderId){
+    public static void deleteOrder(int orderId){
         String removeOrder = String.valueOf(orderId);
         System.out.println("remove order " + removeOrder );
     }

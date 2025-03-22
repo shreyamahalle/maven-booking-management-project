@@ -19,7 +19,7 @@ public class CustomerRepository {
     public void addCustomer(Customer customer) throws SQLException {
         this.initConnection();
         String query = "insert into customer values (?, ?, ?, ?, ?)";
-        try {
+
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 preparedStatement.setInt(1, customer.getId());
                 preparedStatement.setString(2, customer.getName());
@@ -31,7 +31,7 @@ public class CustomerRepository {
 
             } catch (RuntimeException e) {
                 throw new RuntimeException(e);
-            }
+
         } finally { //close connection
             if (connection != null) {
                 try {
@@ -42,13 +42,16 @@ public class CustomerRepository {
             }
         }
     }
+
     public List<Customer> retrieveCustomers() {
         List<Customer> customers = new ArrayList<>();
+        String sql = "SELECT * FROM customer";
+
         try {
             this.initConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from customer");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
@@ -75,12 +78,16 @@ public class CustomerRepository {
 
     public Customer retrieveCustomer(int id, String name) {
         Customer customer = null;
+        String sql = "SELECT * FROM customer WHERE id = ? AND name = ?";
 
         try {
             this.initConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM customer where id = " + id + name);
-            while (resultSet.next()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, name);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
                 String city = resultSet.getString("city");
                 int mobileNo = resultSet.getInt("mobileNo");
                 int age = resultSet.getInt("age");
@@ -100,11 +107,15 @@ public class CustomerRepository {
         return customer;
     }
 
+
     public boolean deleteCustomer(int id) throws SQLException {
+        String sql = "DELETE FROM Customer WHERE id = ?";
+
         try {
             this.initConnection();
-            Statement statement = connection.createStatement();
-            return statement.execute("delete from Customer where id = " + id);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -113,7 +124,6 @@ public class CustomerRepository {
                     connection.close();
                 } catch (SQLException e) {
                     System.err.println("connection is closed: " + e.getMessage());
-
                 }
             }
         }
@@ -162,4 +172,5 @@ public class CustomerRepository {
         }
         customers.remove(customerToBeClosed);
     }
+
 }

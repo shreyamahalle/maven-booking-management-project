@@ -10,7 +10,6 @@ import java.util.*;
 public class DeliveryAgentService implements DeliveryAgentServiceInterface {
     private static final DeliveryAgentRepository deliveryAgentRepository = new DeliveryAgentRepository();
     private static final CustomerRepository customerRepository = new CustomerRepository();
-    //private static final Customer customer = new Customer();
     public static Map<Integer, DeliveryAgent> deliveryAgents = new HashMap<>();
     private final Scanner sc = new Scanner(System.in);
     private static final DeliveryAgent deliveryAgent = new DeliveryAgent();
@@ -52,8 +51,16 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
         }
     }
     public List<DeliveryAgent> retrieveDeliveryAgents() {
+
         return deliveryAgentRepository.retrieveDeliveryAgents();
     }
+    public static void DeliveryAgent(DeliveryAgent deliveryAgent) {
+
+        deliveryAgentRepository.retrieveDeliveryAgent(1,"abc");
+    }
+
+
+
 
         public void createDeliveryAgent(){
         deliveryAgentRepository.createDeliveryAgent(deliveryAgent);

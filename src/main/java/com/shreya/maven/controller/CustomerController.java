@@ -25,7 +25,6 @@ public class CustomerController {
             System.out.println("4. delete Customer on db");
             System.out.println("5. Retrieve Customer");
             System.out.println("6. Update Customer");
-            System.out.println("7. Read Operation Customer");
             System.out.println("0. Back to Main Menu");
             System.out.print("Enter choice: ");
 
@@ -60,11 +59,8 @@ public class CustomerController {
                     case 6:
                         System.out.println("Update Customer");
                         CustomerService.updateCustomer();
-
-                    case 7:
-                        System.out.println("Update Customer");
-                        CustomerService.updateCustomer();
                         break;
+
                     case 0:
                         System.out.println("Returning to Main Menu...");
                         break;

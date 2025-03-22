@@ -40,37 +40,46 @@ public class DeliveryAgentRepository {
 
                 }
             }
-            return false;
         }
+        return false;
     }
 
     public boolean deleteDeliveryAgent(int id) throws SQLException {
+        String sql = "DELETE FROM DeliveryAgent WHERE id = ?";
 
         try {
             this.initConnection();
-            Statement statement = connection.createStatement();
-            return statement.execute("delete from DeliveryAgent where id = " + id);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            return rowsAffected > 0;
+
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.err.println("SQL error: " + e.getMessage());
+            throw new RuntimeException(e);  // Re-throw exception
         } finally {
             if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    System.err.println("connection is closed: " + e.getMessage());
-
+                    System.err.println("Error closing connection: " + e.getMessage());
                 }
             }
         }
     }
 
+
     public List<DeliveryAgent> retrieveDeliveryAgents() {
         List<DeliveryAgent> deliveryAgents = new ArrayList<>();
+        String sql = "SELECT * FROM deliveryagent";
+
         try {
             this.initConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from deliveryagent");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
@@ -94,21 +103,24 @@ public class DeliveryAgentRepository {
         return deliveryAgents;
     }
 
-    public DeliveryAgent retrieveDeliveryAgent(int id, String name) {
-        DeliveryAgent deliveryAgent = null;
+    public void retrieveDeliveryAgent(int id, String name) {
+            DeliveryAgent deliveryAgent = null;
+            String sql = "SELECT * FROM deliveryagent WHERE id = ? AND name = ?";
 
-        try {
-            this.initConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM deliveryagent where id = " + id + name);
-            while (resultSet.next()) {
-//                int id = resultSet.getInt("id");
-//                String name = resultSet.getString("name");
-                String city = resultSet.getString("city");
-                int mobileNo = resultSet.getInt("mobileNo");
+            try {
+                this.initConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.setString(2, name);
 
-                deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
-            }
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    String city = resultSet.getString("city");
+                    int mobileNo = resultSet.getInt("mobileNo");
+
+                    deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
+                }
+
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
         } finally {
@@ -120,8 +132,11 @@ public class DeliveryAgentRepository {
                 }
             }
         }
-        return deliveryAgent;
     }
+
+
+
+
 
 
      Set<DeliveryAgent> deliveryAgents = new HashSet<>();

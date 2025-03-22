@@ -24,8 +24,8 @@ public class BookingOrderManagement {
             System.out.println("Please choose the option");
             System.out.println("1. Create customer");
             System.out.println("2. Create delivery agent");
-            System.out.println("3. Create restaurant ");
-            System.out.println("4. Create order");
+            System.out.println("3. Create order");
+            System.out.println("4. Create restaurant ");
             System.out.println("5. Display Order Number");
             System.out.println("6. Combo Pack Offer");
             System.out.println("0. Exit project");
