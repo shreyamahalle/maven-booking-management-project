@@ -81,8 +81,6 @@ public class CustomerRepository {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM customer where id = " + id + name);
             while (resultSet.next()) {
-//                int id = resultSet.getInt("id");
-//                String name = resultSet.getString("name");
                 String city = resultSet.getString("city");
                 int mobileNo = resultSet.getInt("mobileNo");
                 int age = resultSet.getInt("age");
