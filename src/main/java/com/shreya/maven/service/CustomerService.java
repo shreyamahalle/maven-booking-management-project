@@ -18,7 +18,7 @@ public class CustomerService {
     public List<Customer> retrieveCustomers() {
         return customerRepository.retrieveCustomers();
     }
-    public static void insertCustomer(Customer customer) {
+    public static void insertCustomer(Customer customer) throws SQLException {
         customerRepository.addCustomer(customer);
     }
     public static void Customer(Customer customer) {

@@ -16,18 +16,22 @@ public class CustomerRepository {
         }
     }
 
-    public void addCustomer(Customer customer) {
+    public void addCustomer(Customer customer) throws SQLException {
+        this.initConnection();
+        String query = "insert into customer values (?, ?, ?, ?, ?)";
         try {
-            this.initConnection();
-            Statement insertStatement = connection.createStatement();
-            boolean isInserted = insertStatement.execute("INSERT INTO customer (id, name, city, mobileNo, age)"
-                    + "VALUES (" + customer.getId() + ", '" + customer.getName() + "', '"
-                    + customer.getCity() + "', '" + customer.getMobileNo() + "', "
-                    + customer.getAge() + ");");
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, customer.getId());
+                preparedStatement.setString(2, customer.getName());
+                preparedStatement.setString(3, customer.getCity());
+                preparedStatement.setInt(4, customer.getMobileNo());
+                preparedStatement.setInt(4, customer.getAge());
+                System.out.println("inserting customer data to table: " + customer);
 
-            System.out.println(insertStatement.toString());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+            } catch (RuntimeException e) {
+                throw new RuntimeException(e);
+            }
         } finally { //close connection
             if (connection != null) {
                 try {
@@ -38,7 +42,6 @@ public class CustomerRepository {
             }
         }
     }
-
     public List<Customer> retrieveCustomers() {
         List<Customer> customers = new ArrayList<>();
         try {
@@ -142,6 +145,7 @@ public class CustomerRepository {
             }
         }
     }
+
 
     Set<Customer> customers = new HashSet<>();
     public void createCustomer(Customer customer) {

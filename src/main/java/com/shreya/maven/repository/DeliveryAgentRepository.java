@@ -31,10 +31,18 @@ public class DeliveryAgentRepository {
             return rowsInserted > 0;
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        return false;
-    }
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.err.println("connection is closed: " + e.getMessage());
 
+                }
+            }
+            return false;
+        }
+    }
 
     public boolean deleteDeliveryAgent(int id) throws SQLException {
 
