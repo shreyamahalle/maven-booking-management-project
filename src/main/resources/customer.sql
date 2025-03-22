@@ -5,6 +5,19 @@ create table customer (
 	mobileNo INT,
 	age INT
 );
+
+select * from customer;
+
+select max(age) from customer;
+select min(age) from customer;
+select avg(age) from customer;
+
+update customer set age = floor (18+(rand()*33))where age is null limit 120;
+select * from customer;
+
+select id from customer where age = 22;
+
+insert into customer(id,name,city,mobileNo,age) values(1149,'abc','delhi',7765433,22);
 insert into customer (id, name, city, mobileNo, age) values (1, 'Bernadene', 'Brighty', 55, 63);
 insert into customer (id, name, city, mobileNo, age) values (2, 'Swen', 'Demeza', 22, 35);
 insert into customer (id, name, city, mobileNo, age) values (3, 'Eba', 'Cayley', 25, 8);

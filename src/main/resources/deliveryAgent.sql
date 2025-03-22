@@ -3,6 +3,7 @@ create table deliveryAgent
   city varchar(200) not null,
   mobileNo varchar(15) unique not null);
 
+select * from deliveryagent;
 
 insert into deliveryAgent (id, name, city, mobileNo) values (1, 'dcuddehay0', 'Nanshi', 7233455678);
 insert into deliveryAgent (id, name, city, mobileNo) values (2, 'orowantree1', 'Mina de SÃ£o Domingos', 7233485678);
