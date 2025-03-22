@@ -105,11 +105,11 @@ public class RestaurantRepository {
 
 
     public boolean deleteRestaurant(int registerNo) throws SQLException {
-        String sql = "DELETE FROM restaurant WHERE id = ?";
 
         try {
             this.initConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            String query = "DELETE FROM restaurant WHERE registerNo = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, registerNo);
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {

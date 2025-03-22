@@ -15,13 +15,13 @@ public class RestaurantController {
     public void run() {
         int option;
         do{
-            System.out.println("\n---- Order ----");
-            System.out.println("1. Add Order");
-            System.out.println("2. View Order Details");
-            System.out.println("3. create Customer on db");
-            System.out.println("4. delete Customer on db");
-            System.out.println("5. Retrieve Customer");
-            System.out.println("6. Update Customer");
+            System.out.println("\n---- Restaurant ----");
+            System.out.println("1. Add Restaurant");
+            System.out.println("2. View Restaurant Details");
+            System.out.println("3. create Restaurant on db");
+            System.out.println("4. delete Restaurant on db");
+            System.out.println("5. Retrieve Restaurant");
+            System.out.println("6. Update Restaurant");
             System.out.println("0. Back to Main Menu");
             System.out.print("Enter choice: ");
 
@@ -38,7 +38,7 @@ public class RestaurantController {
                         break;
                     case 3:
                         System.out.println("Performing create operation on Restaurant");
-                        RestaurantService.insertRestaurant(new Restaurant(135, "krishna", "pune", "abc"));
+                        RestaurantService.insertRestaurant(new Restaurant(101, "Rai", "pune", "kharadi"));
                         break;
                     case 4:
                         System.out.println("delete Restaurant");
@@ -67,14 +67,6 @@ public class RestaurantController {
                 throw new RuntimeException(e);
             }
         } while (option != 0);
-    }
-
-    public RestaurantService getRestaurantService() {
-        return restaurantService;
-    }
-
-    public void setRestaurantService(RestaurantService restaurantService) {
-        this.restaurantService = restaurantService;
     }
 }
 

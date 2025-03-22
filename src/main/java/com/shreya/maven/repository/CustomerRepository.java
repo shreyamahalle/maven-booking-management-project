@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CustomerRepository {
+
     private static Connection connection = null;
 
     private void initConnection() throws SQLException {
@@ -45,11 +46,11 @@ public class CustomerRepository {
 
     public List<Customer> retrieveCustomers() {
         List<Customer> customers = new ArrayList<>();
-        String sql = "SELECT * FROM customer";
+        String query = "SELECT * FROM customer";
 
         try {
             this.initConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

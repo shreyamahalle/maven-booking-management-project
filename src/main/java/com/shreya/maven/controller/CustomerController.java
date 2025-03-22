@@ -44,7 +44,7 @@ public class CustomerController {
                         break;
                     case 3:
                         System.out.println("Performing create operation on Customer");
-                        CustomerService.insertCustomer(new Customer(135, "krishna", "amt", 908547358, 45));
+                        CustomerService.insertCustomer(new Customer(101, "ABC", "pune", 908547358, 22));
                         break;
                     case 4:
                         System.out.println("delete Customer");
