@@ -43,11 +43,11 @@ public class RestaurantRepository {
 
     public List<Restaurant> retrieveRestaurants() {
         List<Restaurant> restaurants = new ArrayList<>();
-        String sql = "SELECT * FROM restaurant";
+        String query = "SELECT * FROM restaurant";
 
         try {
             this.initConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -97,11 +97,11 @@ public class RestaurantRepository {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    System.err.println("Error closing connection: " + e.getMessage());
-                }
-            }
-        }
-    }
+                  System.err.println("Error closing connection: " + e.getMessage());
+             }
+         }
+      }
+  }
 
 
     public boolean deleteRestaurant(int registerNo) throws SQLException {

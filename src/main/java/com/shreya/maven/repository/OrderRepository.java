@@ -1,8 +1,6 @@
 package com.shreya.maven.repository;
-import com.shreya.maven.model.Customer;
 import com.shreya.maven.model.Order;
 import com.shreya.maven.service.ConnectionService;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -28,7 +26,6 @@ public class OrderRepository {
                 preparedStatement.setString(3, order.getNote());
                 preparedStatement.setString(4, order.getPaymentMethod());
                 System.out.println("inserting order data to table: " + order);
-
 
             } catch (RuntimeException e) {
                 throw new RuntimeException(e);
