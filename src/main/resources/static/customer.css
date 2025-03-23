@@ -1,0 +1,108 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+/*    background-image: url('"C:\Users\home\Downloads\foodimage.jpg.jpeg"');*/
+    background-image: url('C:\Users\home\Downloads\foodimage.jpg.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    }
+
+/* Rest of the styles remain the same */
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency to let background show through */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+h1 {
+    text-align: center;
+    color: #7d7d7d; /* Soft muted gray */
+    font-size: 28px;
+}
+
+/* Form styling */
+.customer-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #7d7d7d; /* Soft muted gray */
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdcdc; /* Light gray border */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f2f2f2; /* Light muted background for inputs */
+    color: #333333; /* Darker text color for readability */
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #b0bec5; /* Soft muted blue-gray */
+    color: black; /* Black text color for buttons */
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+/* Styling for "I'm not a robot" label */
+label[for="notRobot"] {
+    font-size: 16px;
+    color: #7d7d7d; /* Soft gray for the label */
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #90a4ae; /* Darker muted blue-gray on hover */
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-actions input {
+    width: 48%;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-actions input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
