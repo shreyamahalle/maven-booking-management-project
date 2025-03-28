@@ -12,13 +12,12 @@ body {
     align-items: center;
     height: 100vh;
 
-    /*    background-image: url('"C:\Users\home\Downloads\foodimage.jpg.jpeg"');*/
+    /*background-image: url('"C:\Users\home\Downloads\foodimage.jpg.jpeg"');*/
     background-image: url('C:\Users\home\Downloads\foodimage.jpg.jpeg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
-
 /* Rest of the styles remain the same */
 .container {
     background-color: rgba(255, 255, 255, 0.8); /* Slight transparency to let background show through */
@@ -30,7 +29,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #7d7d7d; /* Soft muted gray */
+    color: #7d7d7d; /* Soft muted gray color.. */
     font-size: 28px;
 }
 
