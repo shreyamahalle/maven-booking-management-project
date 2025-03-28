@@ -1,6 +1,8 @@
 package com.shreya.maven.repository;
+
 import com.shreya.maven.model.DeliveryAgent;
 import com.shreya.maven.service.ConnectionService;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -104,22 +106,22 @@ public class DeliveryAgentRepository {
     }
 
     public void retrieveDeliveryAgent(int id, String name) {
-            DeliveryAgent deliveryAgent = null;
-            String sql = "SELECT * FROM deliveryagent WHERE id = ? AND name = ?";
+        DeliveryAgent deliveryAgent = null;
+        String sql = "SELECT * FROM deliveryagent WHERE id = ? AND name = ?";
 
-            try {
-                this.initConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.setString(2, name);
+        try {
+            this.initConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, name);
 
-                ResultSet resultSet = preparedStatement.executeQuery();
-                if (resultSet.next()) {
-                    String city = resultSet.getString("city");
-                    int mobileNo = resultSet.getInt("mobileNo");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String city = resultSet.getString("city");
+                int mobileNo = resultSet.getInt("mobileNo");
 
-                    deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
-                }
+                deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
+            }
 
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
@@ -135,28 +137,26 @@ public class DeliveryAgentRepository {
     }
 
 
+    Set<DeliveryAgent> deliveryAgents = new HashSet<>();
 
+    public void createDeliveryAgent(DeliveryAgent deliveryAgent) {
 
+        deliveryAgents.add(deliveryAgent);
+    }
 
+    public void displayDeliveryAgent(DeliveryAgent deliveryAgent) {
 
-     Set<DeliveryAgent> deliveryAgents = new HashSet<>();
+        deliveryAgents.remove(deliveryAgent);
+    }
 
-      public void createDeliveryAgent (DeliveryAgent deliveryAgent){
+    public void displayDeliveryAgentToBeClosed(int id) {
 
-       deliveryAgents.add(deliveryAgent);
-       }
-       public void displayDeliveryAgent (DeliveryAgent deliveryAgent){
-
-           deliveryAgents.remove(deliveryAgent);
-       }
-       public void displayDeliveryAgentToBeClosed ( int id){
-
-           DeliveryAgent deliveryAgentToBeClosed = null;
-           for (DeliveryAgent deliveryAgent : deliveryAgents) {
-               if (deliveryAgent.getId() == id) {
-                   deliveryAgentToBeClosed = deliveryAgent;
-               }
-           }
-           deliveryAgents.remove(deliveryAgentToBeClosed);
-       }
+        DeliveryAgent deliveryAgentToBeClosed = null;
+        for (DeliveryAgent deliveryAgent : deliveryAgents) {
+            if (deliveryAgent.getId() == id) {
+                deliveryAgentToBeClosed = deliveryAgent;
+            }
+        }
+        deliveryAgents.remove(deliveryAgentToBeClosed);
+    }
 }

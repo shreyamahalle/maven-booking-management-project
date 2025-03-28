@@ -1,6 +1,8 @@
 package com.shreya.maven.repository;
+
 import com.shreya.maven.model.Order;
 import com.shreya.maven.service.ConnectionService;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -149,29 +151,21 @@ public class OrderRepository {
     }
 
 
-
-
-
-
-
-
-
-
-
     Set<Order> orders = new HashSet<>();
 
-    public void createOrder(Order order){
+    public void createOrder(Order order) {
 
         orders.add(order);
     }
-    public void displayOrder(Order order){
+
+    public void displayOrder(Order order) {
         orders.remove(order);
     }
 
-    public void displayOrderToBeClosed(int id){
+    public void displayOrderToBeClosed(int id) {
         Order orderToBeClosed = null;
-        for (Order order : orders){
-            if (order.getId() == id){
+        for (Order order : orders) {
+            if (order.getId() == id) {
                 orderToBeClosed = order;
             }
         }

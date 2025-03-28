@@ -1,4 +1,5 @@
 package com.shreya.maven.controller;
+
 import com.shreya.maven.exception.CustomerException;
 import com.shreya.maven.model.Restaurant;
 import com.shreya.maven.service.RestaurantService;
@@ -14,7 +15,7 @@ public class RestaurantController {
 
     public void run() {
         int option;
-        do{
+        do {
             System.out.println("\n---- Restaurant ----");
             System.out.println("1. Add Restaurant");
             System.out.println("2. View Restaurant Details");

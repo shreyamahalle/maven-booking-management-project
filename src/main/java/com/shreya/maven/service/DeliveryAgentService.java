@@ -1,4 +1,5 @@
 package com.shreya.maven.service;
+
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.model.DeliveryAgent;
 import com.shreya.maven.repository.CustomerRepository;
@@ -38,7 +39,8 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
             throw new RuntimeException(e);
         }
     }
-    public static void deleteDeliveryAgent()  {
+
+    public static void deleteDeliveryAgent() {
 
         try {
             if (deliveryAgentRepository.deleteDeliveryAgent(1)) {
@@ -50,19 +52,19 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
             throw new RuntimeException(e);
         }
     }
+
     public List<DeliveryAgent> retrieveDeliveryAgents() {
 
         return deliveryAgentRepository.retrieveDeliveryAgents();
     }
+
     public static void DeliveryAgent(DeliveryAgent deliveryAgent) {
 
-        deliveryAgentRepository.retrieveDeliveryAgent(1,"abc");
+        deliveryAgentRepository.retrieveDeliveryAgent(1, "abc");
     }
 
 
-
-
-        public void createDeliveryAgent(){
+    public void createDeliveryAgent() {
         deliveryAgentRepository.createDeliveryAgent(deliveryAgent);
         deliveryAgentRepository.displayDeliveryAgent(deliveryAgent);
         deliveryAgentRepository.displayDeliveryAgentToBeClosed(1);
@@ -85,11 +87,12 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
             deliveryAgent.setCity(city);
             deliveryAgent.setMobileNo(mobileNo);
             deliveryAgents.put(1, deliveryAgent);
-        }catch (Exception e){
-                System.out.println("Invalid input type correct data");
-            }
+        } catch (Exception e) {
+            System.out.println("Invalid input type correct data");
+        }
     }
-    public void displayDeliveryAgent(){
+
+    public void displayDeliveryAgent() {
 
         try {
 
@@ -99,9 +102,9 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
 //          }
 
             //java 8 features forEach loop
-            deliveryAgents.forEach((id, deliveryAgents)-> System.out.println("deliveryAgents Id " + id + " = deliveryAgents info " + deliveryAgents));
+            deliveryAgents.forEach((id, deliveryAgents) -> System.out.println("deliveryAgents Id " + id + " = deliveryAgents info " + deliveryAgents));
 
-            }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Invalid input type correct data");
         }
     }

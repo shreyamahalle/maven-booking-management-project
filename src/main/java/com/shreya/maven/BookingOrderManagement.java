@@ -11,6 +11,7 @@ import com.shreya.maven.service.*;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+
 public class BookingOrderManagement {
 
     private static final ConnectionService connectionService = new ConnectionService();
@@ -87,7 +88,7 @@ public class BookingOrderManagement {
                     orderMultipleInheritanceService.displayOrder();
             }
             switch (option) {
-                case 0:
+                case 0 :
                     System.out.println("Exiting project");
                     break;
             }

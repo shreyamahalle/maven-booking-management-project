@@ -1,4 +1,5 @@
 package com.shreya.maven.controller;
+
 import com.shreya.maven.exception.CustomerException;
 import com.shreya.maven.impl.OrderNumberImpl;
 import com.shreya.maven.model.Customer;
@@ -18,7 +19,7 @@ public class OrderNumberController {
 
     public void run() {
         int option;
-        do{
+        do {
             System.out.println("\n---- Order ----");
             System.out.println("1. View Order Details");
             System.out.println("0. Back to Main Menu");

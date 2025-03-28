@@ -1,7 +1,9 @@
 package com.shreya.maven.impl;
+
 import com.shreya.maven.model.Order;
 import com.shreya.maven.repository.OrderRepository;
 import com.shreya.maven.service.OrderNumberService;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -11,14 +13,16 @@ public class CustomerImpl implements OrderNumberService {
     @Override
     public void createOrderNo() {
     }
+
     OrderRepository orderRepository = new OrderRepository();
     HashMap<Integer, Order> orders = new HashMap<>();
     Scanner sc = new Scanner(System.in);
 
-    public void printCustomer(){
+    public void printCustomer() {
         //System.out.println(order);
     }
-    public void createOrder(){
+
+    public void createOrder() {
         Order order = new Order();
         orderRepository.createOrder(order);
         orderRepository.displayOrder(order);
@@ -42,19 +46,18 @@ public class CustomerImpl implements OrderNumberService {
             order.setNote(note);
             order.setType(type);
             orders.put(1, order);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Invalid input type correct data");
         }
     }
-    public void displayOrder(){
+
+    public void displayOrder() {
         try {
             Set<Map.Entry<Integer, Order>> entrySet = orders.entrySet();
             for (Map.Entry<Integer, Order> customerEntry : entrySet) {
                 System.out.println("Customer Info: " + orders);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Invalid input type correct data");
         }
     }

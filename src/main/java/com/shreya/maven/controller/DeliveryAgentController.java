@@ -1,4 +1,5 @@
 package com.shreya.maven.controller;
+
 import com.shreya.maven.exception.DeliveryAgentException;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.model.DeliveryAgent;
@@ -14,7 +15,7 @@ public class DeliveryAgentController {
 
     public void run() {
         int option;
-        do{
+        do {
             System.out.println("---- DeliveryAgent ----");
             System.out.println("1. Add DeliveryAgent");
             System.out.println("2. View DeliveryAgent Details");
@@ -30,7 +31,7 @@ public class DeliveryAgentController {
                     case 1:
                         deliveryAgentService.createDeliveryAgent();
                         deliveryAgentService.displayDeliveryAgent();
-                        System.out.println("DeliveryAgent " + deliveryAgent );
+                        System.out.println("DeliveryAgent " + deliveryAgent);
                         break;
                     case 2:
                         deliveryAgentService.displayDeliveryAgent();

@@ -1,4 +1,5 @@
 package com.shreya.maven.repository;
+
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.model.Restaurant;
 import com.shreya.maven.service.ConnectionService;
@@ -17,19 +18,20 @@ public class RestaurantRepository {
             connection = new ConnectionService().getConnection();
         }
     }
+
     public void addRestaurant(Restaurant restaurant) throws SQLException {
         this.initConnection();
         String query = "insert into restaurant values (?, ?, ?, ?)";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setInt(1, restaurant.getRegisterNo());
-                preparedStatement.setString(2, restaurant.getName());
-                preparedStatement.setString(3, restaurant.getCity());
-                preparedStatement.setString(4, restaurant.getArea());
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, restaurant.getRegisterNo());
+            preparedStatement.setString(2, restaurant.getName());
+            preparedStatement.setString(3, restaurant.getCity());
+            preparedStatement.setString(4, restaurant.getArea());
 
-                System.out.println("inserting restaurant data to table: " + restaurant);
+            System.out.println("inserting restaurant data to table: " + restaurant);
 
-            } catch (RuntimeException e) {
-                throw new RuntimeException(e);
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
         } finally { //close connection
             if (connection != null) {
                 try {
@@ -97,11 +99,11 @@ public class RestaurantRepository {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                  System.err.println("Error closing connection: " + e.getMessage());
-             }
-         }
-      }
-  }
+                    System.err.println("Error closing connection: " + e.getMessage());
+                }
+            }
+        }
+    }
 
 
     public boolean deleteRestaurant(int registerNo) throws SQLException {
@@ -149,43 +151,22 @@ public class RestaurantRepository {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Set<Restaurant> restaurants = new HashSet<>();
 
-    public void createRestaurant(Restaurant restaurant){
+    public void createRestaurant(Restaurant restaurant) {
 
         restaurants.add(restaurant);
     }
 
-    public void displayRestaurant(Restaurant restaurant){
+    public void displayRestaurant(Restaurant restaurant) {
 
         restaurants.remove(restaurant);
     }
 
-    public void displayRestaurantToBeClosed(String name){
+    public void displayRestaurantToBeClosed(String name) {
         Restaurant restaurantToBeClosed = null;
-        for (Restaurant restaurant : restaurants){
-            if (restaurant.getName() == name){
+        for (Restaurant restaurant : restaurants) {
+            if (restaurant.getName() == name) {
                 restaurantToBeClosed = restaurant;
             }
         }

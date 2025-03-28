@@ -1,6 +1,8 @@
 package com.shreya.maven.repository;
+
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.service.ConnectionService;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,17 +23,17 @@ public class CustomerRepository {
         this.initConnection();
         String query = "insert into customer values (?, ?, ?, ?, ?)";
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setInt(1, customer.getId());
-                preparedStatement.setString(2, customer.getName());
-                preparedStatement.setString(3, customer.getCity());
-                preparedStatement.setInt(4, customer.getMobileNo());
-                preparedStatement.setInt(4, customer.getAge());
-                System.out.println("inserting customer data to table: " + customer);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, customer.getId());
+            preparedStatement.setString(2, customer.getName());
+            preparedStatement.setString(3, customer.getCity());
+            preparedStatement.setInt(4, customer.getMobileNo());
+            preparedStatement.setInt(4, customer.getAge());
+            System.out.println("inserting customer data to table: " + customer);
 
 
-            } catch (RuntimeException e) {
-                throw new RuntimeException(e);
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
 
         } finally { //close connection
             if (connection != null) {
@@ -157,13 +159,16 @@ public class CustomerRepository {
 
 
     Set<Customer> customers = new HashSet<>();
+
     public void createCustomer(Customer customer) {
 
         customers.add(customer);
     }
+
     public void displayCustomers(Customer customer) {
         customers.remove(customer);
     }
+
     public void displayCustomerToBeClosed(int id) {
         Customer customerToBeClosed = null;
         for (Customer customer : customers) {

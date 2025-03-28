@@ -1,4 +1,5 @@
 package com.shreya.maven.service;
+
 import com.shreya.maven.exception.CustomerNotfound;
 import com.shreya.maven.model.Customer;
 import com.shreya.maven.repository.CustomerRepository;
@@ -13,20 +14,22 @@ public class CustomerService {
 
     private static final CustomerRepository customerRepository = new CustomerRepository();
     Scanner sc = new Scanner(System.in);
-    private static final Map<Integer ,Customer> customers = new HashMap<>();
+    private static final Map<Integer, Customer> customers = new HashMap<>();
 
     public List<Customer> retrieveCustomers() {
         return customerRepository.retrieveCustomers();
     }
+
     public static void insertCustomer(Customer customer) throws SQLException {
         customerRepository.addCustomer(customer);
     }
+
     public static void Customer(Customer customer) {
 
-        customerRepository.retrieveCustomer(1,"abc");
+        customerRepository.retrieveCustomer(1, "abc");
     }
 
-    public static void deleteCustomer()  {
+    public static void deleteCustomer() {
 
         try {
             if (customerRepository.deleteCustomer(1)) {
@@ -38,25 +41,24 @@ public class CustomerService {
             throw new RuntimeException(e);
         }
     }
+
     public static void updateCustomer() throws SQLException {
-        if(customerRepository.updateCustomer(2,"shreya")){
+        if (customerRepository.updateCustomer(2, "shreya")) {
             System.out.println("Customer updated successfully ");
-        } else{
+        } else {
             System.out.println("Failed to update customer");
         }
 
     }
 
 
-
-
-
-    public void displayCustomerInfo() throws CustomerNotfound{
+    public void displayCustomerInfo() throws CustomerNotfound {
         customers.entrySet().stream().parallel()
-                .filter(entry -> entry.getValue().getId()>101)
+                .filter(entry -> entry.getValue().getId() > 101)
                 .forEach(entry -> System.out.println("Customer ID: " + entry.getKey() + " = Customer Info: " + entry.getValue()));
     }
-    public void createCustomer () {
+
+    public void createCustomer() {
         Customer customer = new Customer();
         customerRepository.createCustomer(customer);
         customerRepository.displayCustomers(customer);
@@ -90,7 +92,7 @@ public class CustomerService {
         }
     }
 
-    public void displayCustomers(){
+    public void displayCustomers() {
         try {
             //Set<Map.Entry<Integer, Customer>> entrySet = customers.entrySet();
 //            for (Map.Entry<Integer, Customer> customerEntry : entrySet) {

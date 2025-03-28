@@ -1,4 +1,5 @@
 package com.shreya.maven.controller;
+
 import com.shreya.maven.exception.CustomerException;
 import com.shreya.maven.exception.CustomerNotfound;
 import com.shreya.maven.model.Customer;
@@ -16,8 +17,8 @@ public class CustomerController {
     private final Scanner sc = new Scanner(System.in);
 
     public void run() {
-        int option ;
-        do{
+        int option;
+        do {
             System.out.println("\n---- Customer ----");
             System.out.println("1. Add Customer");
             System.out.println("2. View Customer Details");
