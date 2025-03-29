@@ -44,9 +44,9 @@ Before you begin, ensure you have the following:
 - **IDE**: Use IntelliJ IDEA, Eclipse, or any Java IDE you're comfortable with.
 - **Git (optional)**: For version control and easier collaboration.
 
-### **Steps to Get Started**
+### ** Steps to Get Started**
 
-1. **Clone the Repository**:
+1. ** Clone the Repository**:
    ```bash
    git clone git@github.com:shreyamahalle/maven-booking-management-project.git
 
@@ -54,10 +54,10 @@ Before you begin, ensure you have the following:
 2. ##** Navigate to the Project Directory:**
 - cd maven-booking-management-project
 
-3. ##**Open the Project in Your Preferred IDE:**
+3. ##** Open the Project in Your Preferred IDE:**
 - Launch your IDE (IntelliJ, Eclipse, etc.), and open the cloned repository.
 
-4. ##**Set up the MySQL Database:**
+4. ##** Set up the MySQL Database:**
 - CREATE DATABASE booking_management;
    USE booking_management;
 
