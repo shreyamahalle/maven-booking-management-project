@@ -211,5 +211,11 @@ Customer --> DeliveryAgent : Association
 
 ```
 
-👨‍💻 Author
-Shreya Mahalle | GitHub | LinkedIn
+---
+
+## 👨‍💻 Author
+
+Shreya Mahalle  
+[GitHub](https://github.com/shreyamahalle) | [LinkedIn](https://linkedin.com/in/shreyamahalle)
+
+---
