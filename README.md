@@ -51,7 +51,7 @@ Before you begin, ensure you have the following:
    git clone git@github.com:shreyamahalle/maven-booking-management-project.git
 
    
-##2. **Navigate to the Project Directory:**
+2. ## **Navigate to the Project Directory:**
 - cd maven-booking-management-project
 
 3. **Open the Project in Your Preferred IDE:**
@@ -65,8 +65,7 @@ Before you begin, ensure you have the following:
 
 - To set up the database and create the necessary tables, run the following SQL queries:
 
- 1. **Create Database**
-``mysql
+
 
 
 
