@@ -4,7 +4,7 @@ Welcome to the **Maven Booking Management Project**, a simple yet powerful Java 
 
 ---
 
-## 1 .**🚀 Project Overview**
+## **🚀 Project Overview**
 
 The **maven-booking-management-project** is designed to demonstrate a **booking management system** with a focus on real-world interactions. It allows for easy management of bookings, delivery agent assignments, and order handling.
 
@@ -46,15 +46,16 @@ Before you begin, ensure you have the following:
 
 ## **💡Steps to Get Started**
 
-1. **Clone the Repository**:
+1. **Clone the Repository**: 
+
    ```bash
    git clone git@github.com:shreyamahalle/maven-booking-management-project.git
 
    
-2. **Navigate to the Project Directory:**
+## 2. **Navigate to the Project Directory:**
 - cd maven-booking-management-project
 
-3.  **Open the Project in Your Preferred IDE:**
+3. **Open the Project in Your Preferred IDE:**
 - Launch your IDE (IntelliJ, Eclipse, etc.), and open the cloned repository.
 
 4. ## **Set up the MySQL Database:**
