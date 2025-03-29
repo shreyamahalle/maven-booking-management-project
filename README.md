@@ -69,13 +69,7 @@ INSERT INTO Customer (name, username, mobileNo, city, area)
 VALUES ('John Doe', 'johndoe123', '123-456-7890', 'New York', 'Manhattan');
 
 
-
-
-
-
-
-
-   
+ 
 
 6. ## **Configure Your MySQL Connection:**
    
@@ -96,7 +90,7 @@ VALUES ('John Doe', 'johndoe123', '123-456-7890', 'New York', 'Manhattan');
 
 
 
- ## **Code Structure## ** 
+## **Code Structure** ## 
 
 ## **Packages Structure**
 - com.booking.using.dowhile: Contains the main application logic (BookingDemoDoWhile.java).
