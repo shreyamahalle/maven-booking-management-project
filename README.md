@@ -61,11 +61,57 @@ Before you begin, ensure you have the following:
 - CREATE DATABASE booking_management;
    USE booking_management;
 
+5. **Run SQL Scripts to Set Up Tables:**
+   CREATE TABLE Customer (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    username VARCHAR(50),
+    mobileNo VARCHAR(20),
+    city VARCHAR(50),
+    area VARCHAR(50)
+);
 
-Create a new database for this project in MySQL:
-## **Configure Your MySQL Connection:**
+CREATE TABLE DeliveryAgent (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    city VARCHAR(50),
+    mobileNo VARCHAR(20)
+);
+
+CREATE TABLE Order (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    lastName VARCHAR(100),
+    age INT,
+    contactNo VARCHAR(20),
+    address TEXT
+);
+
+CREATE TABLE Restaurant (
+    registerNo INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    city VARCHAR(50),
+    area VARCHAR(50),
+    contactNo VARCHAR(20)
+);
+
+6. **Configure Your MySQL Connection:**
+   
 - In your project configuration (application.properties), set the MySQL database connection details.
-- 
+  
+- Example application.properties:
+
+- spring.datasource.url=jdbc:mysql://localhost:3306/booking_management
+- spring.datasource.username=root
+- spring.datasource.password=your_password
+- spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+ 7. **Compile and Run the Application:**
+
+- Locate Main.java in your IDE.
+
+- Run the file to launch the application.
+
 
 
 ## **Code Structure## **  
@@ -184,6 +230,9 @@ Restaurant --> DeliveryAgent : Association
 
 Customer --> DeliveryAgent : Association
 
+
+👨‍💻 Author
+Shreya Mahalle | GitHub | LinkedIn
 
 
 ```
