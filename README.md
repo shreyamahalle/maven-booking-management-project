@@ -14,9 +14,9 @@ The Core maven-booking-management-project is a basic Java application that demon
   
 ## **Technologies Used**
 
--Java: Core programming language.
--Maven: Project management and build automation tool.
--MySQL: Database management system for storing customer, delivery agent, order, and restaurant information.
+- Java: Core programming language.
+- Maven: Project management and build automation tool.
+- MySQL: Database management system for storing customer, delivery agent, order, and restaurant information.
 
 ## **Installation and Setup**
 - Prerequisites
