@@ -32,6 +32,7 @@ This project is built with the following technologies:
 
 ---
 
+
 ## **💡 Installation and Setup**
 
 ### **Prerequisites**
@@ -49,7 +50,22 @@ Before you begin, ensure you have the following:
    ```bash
    git clone git@github.com:shreyamahalle/maven-booking-management-project.git
 
+   
+2.##** Navigate to the Project Directory:**
+- cd maven-booking-management-project
+
+3.##**Open the Project in Your Preferred IDE:**
+- Launch your IDE (IntelliJ, Eclipse, etc.), and open the cloned repository.
+
+4.##**Set up the MySQL Database:**
+- CREATE DATABASE booking_management;
+   USE booking_management;
+
+
+Create a new database for this project in MySQL:
 ## **Configure Your MySQL Connection:**
+- In your project configuration (application.properties), set the MySQL database connection details.
+- 
 
 
 ## **Code Structure## **  
