@@ -49,7 +49,10 @@ Before you begin, ensure you have the following:
    ```bash
    git clone git@github.com:shreyamahalle/maven-booking-management-project.git
 
-## **Code Structure**  
+## **Configure Your MySQL Connection:**
+
+
+## **Code Structure## **  
 ## **Packages Structure**
 - com.booking.using.dowhile: Contains the main application logic (BookingDemoDoWhile.java).
 - com.booking.using.dowhile.model: Includes the model classes:
@@ -68,6 +71,19 @@ Before you begin, ensure you have the following:
 2. **DeliveryAgent**
 3. **Order**
 4. **Restaurant**
+
+## **🔧 Core Functionality**
+1. Customer Management
+Allows you to create and manage customer information such as name, username, contact details, and address.
+
+2. Delivery Agent Management
+Adds delivery agents, assigns them to orders, and tracks their delivery status.
+
+3. Order Management
+Manages the creation, display, and tracking of customer orders from placement to delivery.
+
+4. Restaurant Management
+Registers new restaurants, displays restaurant details, and associates them with orders.
 
 
 
