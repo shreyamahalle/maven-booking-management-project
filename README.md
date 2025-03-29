@@ -70,9 +70,7 @@ INSERT INTO Customer (name, username, mobileNo, city, area)
 VALUES ('John Doe', 'johndoe123', '123-456-7890', 'New York', 'Manhattan');
 
 
- 
-
-## 6. **Configure Your MySQL Connection:**
+ ## 6. **Configure Your MySQL Connection:**
    
 - In your project configuration (application.properties), set the MySQL database connection details.
   
