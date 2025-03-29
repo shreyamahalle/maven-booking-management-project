@@ -54,14 +54,14 @@ Before you begin, ensure you have the following:
 2. ## **Navigate to the Project Directory:**
 - cd maven-booking-management-project
 
-3. **Open the Project in Your Preferred IDE:**
+3. ## **Open the Project in Your Preferred IDE:**
 - Launch your IDE (IntelliJ, Eclipse, etc.), and open the cloned repository.
 
-4. **Set up the MySQL Database:**
+4. ## **Set up the MySQL Database:**
 - CREATE DATABASE booking_management;
    USE booking_management;
 
-5. **MySQL Database Setup**
+5. ## **MySQL Database Setup**
 
 - To set up the database and create the necessary tables, run the following SQL queries:
 
@@ -74,7 +74,7 @@ Before you begin, ensure you have the following:
 
    
 
-6. **Configure Your MySQL Connection:**
+6. ## **Configure Your MySQL Connection:**
    
 - In your project configuration (application.properties), set the MySQL database connection details.
   
@@ -85,7 +85,7 @@ Before you begin, ensure you have the following:
 - spring.datasource.password=your_password
 - spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
- 7. **Compile and Run the Application:**
+ 7. ## **Compile and Run the Application:**
 
 - Locate Main.java in your IDE.
 
