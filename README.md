@@ -46,7 +46,7 @@ Before you begin, ensure you have the following:
 
 ## **💡Steps to Get Started**
 
-1. ** Clone the Repository**:
+1.## **Clone the Repository**:
    ```bash
    git clone git@github.com:shreyamahalle/maven-booking-management-project.git
 
