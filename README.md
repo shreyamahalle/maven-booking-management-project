@@ -14,11 +14,11 @@ This project is ideal for learning core Java programming concepts while also pro
 
 ## **✨ Key Features**
 
-- **Customer and Restaurant Booking Management**: Effortlessly manage customer bookings and restaurant listings.
-- **Delivery Agent Simulation**: Assign delivery agents to customer orders based on location and availability.
-- **Dynamic Order Handling**: Add, track, and manage customer orders in a real-world-like scenario.
-- **Seamless Java Integration**: Uses Java models to represent the various entities involved in the system.
-- **Easy-to-Follow Structure**: Simple, intuitive design for learning purposes and demonstration.
+- **📅 Customer and Restaurant Booking Management**: Effortlessly handle customer bookings and restaurant data.
+- **🚚 Delivery Agent Simulation**: Assign delivery agents based on location and availability.
+- **📦 Dynamic Order Handling**: Add, track, and manage orders through their entire lifecycle.
+- **💻 Seamless Java Integration**: Clean integration of Java models for each entity (Customer, Delivery Agent, Order, Restaurant).
+- **🔍 Easy-to-Follow Structure**: Well-documented, clean code for learning and demonstration.
 
 ---
 
@@ -29,7 +29,7 @@ This project is built with the following technologies:
 - **Java**: The core programming language used for developing the application.
 - **Maven**: A project management and build automation tool to handle dependencies, building, and packaging.
 - **MySQL**: A reliable relational database system used to store customer, restaurant, delivery agent, and order data.
-
+- **Git**: For version control and collaboration.
 ---
 
 
@@ -64,6 +64,9 @@ Before you begin, ensure you have the following:
 5. ## **MySQL Database Setup**
 
 - To set up the database and create the necessary tables, run the following SQL queries:
+-- Insert sample data into the Customer table
+INSERT INTO Customer (name, username, mobileNo, city, area)
+VALUES ('John Doe', 'johndoe123', '123-456-7890', 'New York', 'Manhattan');
 
 
 
