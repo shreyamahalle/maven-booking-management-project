@@ -61,39 +61,19 @@ Before you begin, ensure you have the following:
 - CREATE DATABASE booking_management;
    USE booking_management;
 
-5. **Run SQL Scripts to Set Up Tables:**
-   CREATE TABLE Customer (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    username VARCHAR(50),
-    mobileNo VARCHAR(20),
-    city VARCHAR(50),
-    area VARCHAR(50)
-);
+5. **MySQL Database Setup**
 
-CREATE TABLE DeliveryAgent (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    city VARCHAR(50),
-    mobileNo VARCHAR(20)
-);
+- To set up the database and create the necessary tables, run the following SQL queries:
 
-CREATE TABLE Order (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    lastName VARCHAR(100),
-    age INT,
-    contactNo VARCHAR(20),
-    address TEXT
-);
+ 1. **Create Database**
+``mysql
 
-CREATE TABLE Restaurant (
-    registerNo INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    city VARCHAR(50),
-    area VARCHAR(50),
-    contactNo VARCHAR(20)
-);
+
+
+
+
+
+   
 
 6. **Configure Your MySQL Connection:**
    
